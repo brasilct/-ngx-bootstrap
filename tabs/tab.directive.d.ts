@@ -5,7 +5,7 @@ export declare class TabDirective implements OnInit, OnDestroy {
     renderer: Renderer2;
     /** tab header text */
     heading: string;
-    /** tab id. The same id with suffix '-link' will be added to the corresponding &lt;li&gt; element  */
+    /** tab id. */
     id: string;
     /** if true tab can not be activated */
     disabled: boolean;
