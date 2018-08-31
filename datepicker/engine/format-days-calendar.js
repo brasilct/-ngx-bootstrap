@@ -24,33 +24,25 @@ export function formatDaysCalendar(daysCalendar, formatOptions, monthIndex) {
     weeks: daysCalendar.daysMatrix.map(function(week, weekIndex) {
       return {
         days: week.map(function(date, dayIndex) {
-          try {
-            var day = formatDate(
+          var day = formatDate(
+            date,
+            formatOptions.dayLabel,
+            formatOptions.locale
+          );
+
+          console.log(day);
+
+          return {
+            date: date,
+            label: formatDate(
               date,
               formatOptions.dayLabel,
               formatOptions.locale
-            );
-
-            console.log(day);
-
-            if (day !== lastDay) {
-              lastDay = day;
-
-              return {
-                date: date,
-                label: formatDate(
-                  date,
-                  formatOptions.dayLabel,
-                  formatOptions.locale
-                ),
-                monthIndex: monthIndex,
-                weekIndex: weekIndex,
-                dayIndex: dayIndex
-              };
-            }
-          } catch (error) {
-            console.log(error);
-          }
+            ),
+            monthIndex: monthIndex,
+            weekIndex: weekIndex,
+            dayIndex: dayIndex
+          };
         })
       };
     })
