@@ -15,7 +15,7 @@ export function createMatrix(options, fn) {
           }
         } else {
           if (fn(prevValue) !== matrix[i][j - 1]) {
-            alert(fn(prevValue) + "-" + matrix[i][j - 1]);
+            // alert(fn(prevValue) + "-" + matrix[i][j - 1]);
             matrix[i][j] = fn(prevValue);
             prevValue = shiftDate(prevValue, options.shift);
           }
@@ -23,7 +23,7 @@ export function createMatrix(options, fn) {
       } else {
         matrix[i][j] = fn(prevValue);
         prevValue = shiftDate(prevValue, options.shift);
-        alert(fn(prevValue) + "-" + matrix[i][j]);
+        // alert(fn(prevValue) + "-" + matrix[i][j]);
       }
     }
   }
