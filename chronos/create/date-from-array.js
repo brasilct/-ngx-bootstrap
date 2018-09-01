@@ -6,6 +6,7 @@ export function createUTCDate(y, m, d) {
     }
     return date;
 }
+
 export function createDate(y, m, d, h, M, s, ms) {
     if (m === void 0) { m = 0; }
     if (d === void 0) { d = 1; }
@@ -13,7 +14,7 @@ export function createDate(y, m, d, h, M, s, ms) {
     if (M === void 0) { M = 0; }
     if (s === void 0) { s = 0; }
     if (ms === void 0) { ms = 0; }
-    var date = new Date(y, m, d, h, M, s, ms);
+    var date = new Date(y, m, d, 1, 0, 0, 0);
 
     var now_utc =  Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),
     date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
@@ -24,8 +25,6 @@ export function createDate(y, m, d, h, M, s, ms) {
     if (y < 100 && y >= 0 && isFinite(newDate.getFullYear())) {
         newDate.setFullYear(y);
     }
-
-    console.log(newDate);
 
     return newDate;
 }
