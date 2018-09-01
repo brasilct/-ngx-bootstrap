@@ -5,23 +5,8 @@ var BsDatepickerNavigationViewComponent = (function () {
         this.onNavigate = new EventEmitter();
         this.onViewMode = new EventEmitter();
     }
-    BsDatepickerNavigationViewComponent.prototype.navTo = function (value, down) {
-        let month = value.month.getMonth();
-        let newMonth = 1;
-        if (down) {
-            if (month === 1) {
-                newMonth = 12; 
-            } else {
-                newMonth = month - 1;
-            }
-        } else {
-            if (month === 12) {
-                newMonth = 1;
-            } else {
-                newMonth = month + 1;
-            }
-        }
-        this.onNavigate.emit(newMonth);
+    BsDatepickerNavigationViewComponent.prototype.navTo = function (down) {
+        this.onNavigate.emit(down ? BsNavigationDirection.DOWN : BsNavigationDirection.UP);
     };
     BsDatepickerNavigationViewComponent.prototype.view = function (viewMode) {
         this.onViewMode.emit(viewMode);
