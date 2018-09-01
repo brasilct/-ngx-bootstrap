@@ -21,8 +21,8 @@ export function createMatrix(options, fn) {
           }
         }
       } else {
-        matrix[i][j] = fn(prevValue) + 1;
-        prevValue = shiftDate(prevValue, options.shift) + 1;
+        matrix[i][j] = fn(prevValue);
+        prevValue = shiftDate(prevValue, options.shift);
         console.log(fn(prevValue) + "-" + matrix[i][j]);
       }
     }
