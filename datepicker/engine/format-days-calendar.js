@@ -1,8 +1,6 @@
 import { formatDate } from "../../chronos/format";
 import { getLocale } from "../../chronos/locale/locales";
 export function formatDaysCalendar(daysCalendar, formatOptions, monthIndex) {
-  var lastDay = 0;
-
   return {
     month: daysCalendar.month,
     monthTitle: formatDate(
@@ -24,14 +22,6 @@ export function formatDaysCalendar(daysCalendar, formatOptions, monthIndex) {
     weeks: daysCalendar.daysMatrix.map(function(week, weekIndex) {
       return {
         days: week.map(function(date, dayIndex) {
-          var day = formatDate(
-            date,
-            formatOptions.dayLabel,
-            formatOptions.locale
-          );
-
-          console.log(day);
-
           return {
             date: date,
             label: formatDate(
@@ -54,9 +44,11 @@ export function getWeekNumbers(daysMatrix, format, locale) {
   });
 }
 export function getShiftedWeekdays(locale) {
-  var _locale = getLocale(locale);
+  var _locale = getLocale(null);
+
   var weekdays = _locale.weekdaysShort();
   var firstDayOfWeek = _locale.firstDayOfWeek();
+
   return weekdays
     .slice(firstDayOfWeek)
     .concat(weekdays.slice(0, firstDayOfWeek));

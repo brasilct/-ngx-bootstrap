@@ -8,6 +8,8 @@ export function getStartingDayOfCalendar(date, options) {
     }
     var weekDay = getDay(date);
     var offset = calculateDateOffset(weekDay, options.firstDayOfWeek);
+    console.log(weekDay);
+    console.log(offset);
     return shiftDate(date, { day: -offset });
 }
 export function calculateDateOffset(weekday, startingDayOffset) {
