@@ -9,13 +9,13 @@ export function createMatrix(options, fn) {
       if (i > 0) {
         if (j === 0) {
           if (fn(prevValue) !== matrix[i - 1][6]) {
-            console.log(fn(prevValue) + "-" + matrix[i - 1][6]);
+            alert(fn(prevValue) + "-" + matrix[i - 1][6]);
             matrix[i][j] = fn(prevValue);
             prevValue = shiftDate(prevValue, options.shift);
           }
         } else {
           if (fn(prevValue) !== matrix[i][j - 1]) {
-            console.log(fn(prevValue) + "-" + matrix[i][j - 1]);
+            alert(fn(prevValue) + "-" + matrix[i][j - 1]);
             matrix[i][j] = fn(prevValue);
             prevValue = shiftDate(prevValue, options.shift);
           }
@@ -23,7 +23,7 @@ export function createMatrix(options, fn) {
       } else {
         matrix[i][j] = fn(prevValue);
         prevValue = shiftDate(prevValue, options.shift);
-        console.log(fn(prevValue) + "-" + matrix[i][j]);
+        alert(fn(prevValue) + "-" + matrix[i][j]);
       }
     }
   }
