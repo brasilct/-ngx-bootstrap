@@ -9,21 +9,21 @@ export function createMatrix(options, fn) {
       if (i > 0) {
         if (j === 0) {
           if (fn(prevValue) !== matrix[i - 1][6]) {
-            alert(fn(prevValue) + "-" + matrix[i - 1][6]);
+            console.log(fn(prevValue) + "-" + matrix[i - 1][6]);
             matrix[i][j] = fn(prevValue);
             prevValue = shiftDate(prevValue, options.shift);
           }
         } else {
           if (fn(prevValue) !== matrix[i][j - 1]) {
-            // alert(fn(prevValue) + "-" + matrix[i][j - 1]);
+            alert(fn(prevValue) + "-" + matrix[i][j - 1]);
             matrix[i][j] = fn(prevValue);
             prevValue = shiftDate(prevValue, options.shift);
           }
         }
       } else {
-        matrix[i][j] = fn(prevValue);
-        prevValue = shiftDate(prevValue, options.shift);
-        // alert(fn(prevValue) + "-" + matrix[i][j]);
+        matrix[i][j] = fn(prevValue) + 1;
+        prevValue = shiftDate(prevValue, options.shift) + 1;
+        console.log(fn(prevValue) + "-" + matrix[i][j]);
       }
     }
   }
