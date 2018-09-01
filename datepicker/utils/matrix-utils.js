@@ -15,7 +15,7 @@ export function createMatrix(options, fn) {
           }
         } else {
           if (fn(prevValue) !== matrix[i][j - 1]) {
-            alert(fn(prevValue) + "-" + matrix[i][j - 1]);
+            console.log(fn(prevValue) + "-" + matrix[i][j - 1]);
             matrix[i][j] = fn(prevValue);
             prevValue = shiftDate(prevValue, options.shift);
           }
